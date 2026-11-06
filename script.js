@@ -1,9 +1,11 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".header");
   const menu = document.querySelector(".menu");
 
   const burger = document.createElement("button");
   burger.className = "burger";
+  burger.setAttribute("aria-label", "Открыть меню");
   burger.innerHTML = "<span></span><span></span><span></span>";
   header.appendChild(burger);
 
