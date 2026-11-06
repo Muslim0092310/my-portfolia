@@ -7,7 +7,6 @@ html {
   top: 0;
   left: 0;
   height: 4px;
-  width: 0;
   background: #d0101f;
   z-index: 100;
 }
@@ -15,170 +14,63 @@ html {
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
     transform: none;
   }
 }
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-.hero-text {
-  animation: fadeUp 0.9s ease both;
-}
-.photo {
-  animation:
-    fadeUp 1s 0.2s ease both,
-    float 4s 1.3s ease-in-out infinite;
-}
-.hero h3 {
-  min-height: 1.6em;
+
+.hero-text, .photo {
+  animation: fadeUp 0.8s ease both;
 }
 
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
+  transform: translateY(20px);
+  transition: 0.5s;
 }
+
 .reveal.show {
   opacity: 1;
   transform: none;
 }
 
-.fill {
-  transition: width 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+.btn, .card, .menu a {
+  transition: 0.3s;
 }
 
-.btn {
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s,
-    opacity 0.2s;
-}
-.btn:hover {
-  transform: translateY(-3px);
-}
-.btn-red:hover {
-  box-shadow: 0 6px 18px rgba(208, 16, 31, 0.45);
-  opacity: 1;
-}
-.card {
-  transition: transform 0.3s;
-}
-.card:hover {
-  transform: translateY(-6px) scale(1.02);
+.btn:hover, .card:hover {
+  transform: translateY(-4px);
 }
 
-.header {
-  position: relative;
-}
-.menu a {
-  position: relative;
-  transition: color 0.2s;
-}
-.menu a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  height: 2px;
-  width: 0;
-  background: #d0101f;
-  transition: width 0.3s;
-}
-.menu a:hover::after,
-.menu a.active::after {
-  width: 100%;
-}
-.menu a.active {
+.menu a:hover, .menu a.active {
   color: #d0101f;
 }
 
 .burger {
   display: none;
-  background: none;
-  border: 0;
-  cursor: pointer;
-  width: 32px;
-  height: 24px;
-  position: relative;
-}
-.burger span {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: #fff;
-  border-radius: 3px;
-  transition: 0.3s;
-}
-.burger span:nth-child(1) {
-  top: 0;
-}
-.burger span:nth-child(2) {
-  top: 10px;
-}
-.burger span:nth-child(3) {
-  top: 20px;
-}
-.burger.open span:nth-child(1) {
-  top: 10px;
-  transform: rotate(45deg);
-}
-.burger.open span:nth-child(2) {
-  opacity: 0;
-}
-.burger.open span:nth-child(3) {
-  top: 10px;
-  transform: rotate(-45deg);
 }
 
 @media (max-width: 800px) {
   .burger {
     display: block;
   }
-  .header .btn-red {
-    display: none;
-  }
+
   .menu.open {
     display: flex;
     flex-direction: column;
     position: absolute;
     top: 100%;
-    left: 20px;
-    right: 20px;
     background: #222;
-    border: 1px solid #444;
-    border-radius: 14px;
     padding: 10px;
-    z-index: 50;
-    animation: fadeUp 0.3s ease both;
-  }
-  .menu.open a {
-    margin: 0;
-    padding: 12px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  * {
     animation: none !important;
     transition: none !important;
-  }
-  .reveal {
-    opacity: 1;
-    transform: none;
   }
 }
